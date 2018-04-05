@@ -1,10 +1,6 @@
 library(data.table)
 setwd("D:/rbreugem/Documents/Courses/DS04 Data cleaning/Project/UCI HAR Dataset")
 
-#read data
-X_test<-read.table(file="./test/X_test.txt")
-X_train<-read.table(file="./train/X_train.txt")
-
 #replace variables codes with names
 colnames(X_test)<-as.character(read.table(file="./features.txt")$V2)
 colnames(X_train)<-as.character(read.table(file="./features.txt")$V2)
@@ -19,7 +15,7 @@ colnames(X_test)[563]<-"activity_id"
 
 #add subjects to train-data
 X_train<-cbind(X_train,read.table(file="./train/subject_train.txt"))
-colnames(X_train)[562]<-"subject_id"
+colnames(X_train)[562]<-"subject_id__"
 
 #add activities to train-data
 X_train<-cbind(X_train,read.table(file="./train/y_train.txt"))
